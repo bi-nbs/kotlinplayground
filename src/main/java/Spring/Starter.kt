@@ -11,10 +11,5 @@ open class Starter{
 }
 
 fun main (args : Array<String>) {
-
-    val dao = InventoryDAOMySQL()
-
-    for (element in dao.readAll()){
-        println(element.toString())
-    }
+    SpringApplication.run(Starter::class.java, *args)
 }

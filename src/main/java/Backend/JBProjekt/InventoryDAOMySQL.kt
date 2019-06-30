@@ -7,7 +7,11 @@ import org.jooq.SQLDialect
 import org.jooq.impl.DSL
 import Backend.JBProjekt.Generated.jbprojekt.Tables.*
 
-class InventoryDAOMySQL : DAO<Inventory> {
+class InventoryDAOMySQL : InventoryDAO {
+    override fun test() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun create(t: Inventory) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -23,9 +27,8 @@ class InventoryDAOMySQL : DAO<Inventory> {
             val context = DSL.using(it, SQLDialect.MYSQL)
 
             for (line in context.select().from(INVENTORY).fetch()){
-                inventories.add(Inventory(line.get(INVENTORY.ID)))
+                inventories.add(Inventory(line.get(INVENTORY.ID), line.get(INVENTORY.STATE_ID)))
             }
-
         }
 
         return inventories
@@ -38,6 +41,5 @@ class InventoryDAOMySQL : DAO<Inventory> {
     override fun delete(id: Int) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
 
 }

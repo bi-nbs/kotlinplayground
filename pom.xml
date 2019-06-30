@@ -101,7 +101,10 @@
 
                 <configuration>
                     <jdbc>
-                        
+                        <driver>com.mysql.cj.jdbc.Driver</driver>
+                        <url>jdbc:mysql://192.168.223.21/jbprojekt</url>
+                        <user>jb</user>
+                        <password>r28^Pw3pZ5p#</password>
                     </jdbc>
 
                     <generator>
@@ -115,7 +118,7 @@
 
                         <target>
                             <packageName>Backend.JBProjekt.Generated</packageName>
-                            <directory>src/Spring.main/java</directory>
+                            <directory>src/main/java</directory>
                         </target>
                     </generator>
 
